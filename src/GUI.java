@@ -3,7 +3,7 @@ import java.awt.event.*;
 
 public class GUI {
 
-    int numone, numtwo;
+    int numone,result;
     char operator;
 
     private JPanel mainpanel;
@@ -116,8 +116,9 @@ public class GUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                numone=Integer.parseInt(textField1.getText());
+                numone = Integer.parseInt(textField1.getText());
                 textField1.setText("");
+                operator = '+';
             }
         });
         sub.addMouseListener(new MouseAdapter() {
@@ -152,10 +153,19 @@ public class GUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 textField1.setText("");
-
+                goto
             }
         });
         frame.setVisible(true);
+
+        switch (operator) {
+
+            case '+':
+                result = numone + Integer.parseInt(textField1.getText());
+                textField2.setText(Integer.toString(result));
+                break;
+
+        }
 
     }
 
