@@ -21,6 +21,8 @@ public class GUI {
         private JButton ans;
         private JButton del;
         private JTextField textField1;
+        private JButton clearall;
+        private JButton future;
 
     public  GUI() {
         JFrame frame = new JFrame();
