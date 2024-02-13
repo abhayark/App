@@ -153,7 +153,7 @@ public class GUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 textField1.setText("");
-                goto
+
             }
         });
         frame.setVisible(true);
