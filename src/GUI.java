@@ -3,7 +3,7 @@ import java.awt.event.*;
 
 public class GUI {
 
-    int numone,result;
+    int numone,numtwo, result;
     char operator;
 
     private JPanel mainpanel;
@@ -23,8 +23,8 @@ public class GUI {
     private JButton mul;
     private JButton ans;
     private JButton Clearall;
-    private JTextField textField1;
     private JButton future;
+    private JTextField textField1;
     private JTextField textField2;
     private JLabel answer;
 
@@ -125,27 +125,54 @@ public class GUI {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                textField1.setText(textField1.getText() + "-");
+                numone = Integer.parseInt(textField1.getText());
+                textField1.setText("");
+                operator = '-';
             }
         });
         div.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                textField1.setText(textField1.getText() + "/");
+                numone = Integer.parseInt(textField1.getText());
+                textField1.setText("");
+                operator = '/';
             }
         });
         mul.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                textField1.setText(textField1.getText() + "*");
+                numone = Integer.parseInt(textField1.getText());
+                textField1.setText("");
+                operator = '*';
             }
         });
         ans.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                if (operator=='+'){
+                    numtwo = Integer.parseInt(textField1.getText());
+                    result = numone + numtwo;
+                    textField2.setText(Integer.toString(result));
+                    textField1.setText("");
+                } else if (operator=='-') {
+                    numtwo = Integer.parseInt(textField1.getText());
+                    result = numone - numtwo;
+                    textField2.setText(Integer.toString(result));
+                    textField1.setText("");
+                } else if (operator=='*') {
+                    numtwo = Integer.parseInt(textField1.getText());
+                    result = numone * numtwo;
+                    textField2.setText(Integer.toString(result));
+                    textField1.setText("");
+                }else if (operator=='/') {
+                    numtwo = Integer.parseInt(textField1.getText());
+                    result = numone / numtwo;
+                    textField2.setText(Integer.toString(result));
+                    textField1.setText("");
+                }
             }
         });
         Clearall.addMouseListener(new MouseAdapter() {
@@ -153,22 +180,10 @@ public class GUI {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 textField1.setText("");
-
             }
         });
         frame.setVisible(true);
-
-        switch (operator) {
-
-            case '+':
-                result = numone + Integer.parseInt(textField1.getText());
-                textField2.setText(Integer.toString(result));
-                break;
-
-        }
-
     }
-
     public static void main(String[] args) {
 
         new GUI();
